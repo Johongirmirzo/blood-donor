@@ -4,15 +4,27 @@ interface ILoginData {
     rememberMe: boolean;
 }   
 
-
-
+const getToken = ()=>{
+    return JSON.parse(localStorage.getItem("admin-token") || "null")
+}
+const setToken = (accessToken: string, refreshToken: string)=>{
+    localStorage.setItem(
+        "admin-token",
+        JSON.stringify({
+          accessToken,
+          refreshToken,
+        })
+      );
+}
+const removeToken = ()=>{
+    localStorage.removeItem("admin-token")
+}
 
 const getAdminLoginData = ()=>{
     return JSON.parse(
         localStorage.getItem("login-remember-pharmacist") || "{}"
       )
 }
-
 const setAdminLoginData = (loginData: ILoginData)=>{
     localStorage.setItem("admin-login-data", JSON.stringify(loginData))
 }
@@ -22,22 +34,13 @@ const removeAdminLoginData = ()=>{
 const removeAdminFromStorage = ()=>{
     localStorage.removeItem("persist:admin");
 }
-const getSessionExpiredMessage = ()=>{
-    return localStorage.getItem("session-expired")
-}
-const removeSessionExpiredMessage = ()=>{
-    localStorage.removeItem("session-expired")
-}
-const setSessionExpiredMessage = ()=>{
-    localStorage.setItem("session-expired", "Session is expired! Please login!")
-}
 
 export {
+    getToken,
+    setToken,
+    removeToken,
     getAdminLoginData,
     setAdminLoginData,
     removeAdminLoginData,
     removeAdminFromStorage,
-    getSessionExpiredMessage,
-    removeSessionExpiredMessage,
-    setSessionExpiredMessage
 }

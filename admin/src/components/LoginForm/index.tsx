@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import { useDispatch } from "react-redux";
@@ -22,11 +22,10 @@ import {
 } from "./index.styled";
 import { login } from "../../api/admin";
 import {
+  setToken,
   getAdminLoginData,
   setAdminLoginData,
   removeAdminLoginData,
-  getSessionExpiredMessage,
-  removeSessionExpiredMessage,
 } from "../../utils/localStorage";
 import { ILoginData } from "./index.types";
 
@@ -37,20 +36,13 @@ const Login = () => {
   const [error, setError] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const sessionExpiredMessage = getSessionExpiredMessage();
-    if (sessionExpiredMessage) {
-      setError([sessionExpiredMessage]);
-    }
-  }, []);
-
   const handleLoginAdminSubmit = async (loginData: ILoginData) => {
     try {
       setIsLoading(true);
       const response = await login(loginData);
       console.log(response);
       setIsLoading(false);
-      if (!response.data.isAdmin) {
+      if (!response.data.donor.isAdmin) {
         setError([
           "You aren't admin! You aren't authorized to access this app",
         ]);
@@ -61,16 +53,16 @@ const Login = () => {
           removeAdminLoginData();
         }
         const admin = {
-          adminId: response.data._id,
-          fullname: response.data.fullname,
-          phoneNumber: response.data.phoneNumber,
-          email: response.data.email,
-          age: response.data.age,
-          gender: response.data.gender,
-          bloodGroup: response.data.bloodGroup,
-          city: response.data.city,
-          isHidden: response.data.isHidden,
-          isAdmin: response.data.isAdmin,
+          adminId: response.data.donor._id,
+          fullname: response.data.donor.fullname,
+          phoneNumber: response.data.donor.phoneNumber,
+          email: response.data.donor.email,
+          age: response.data.donor.age,
+          gender: response.data.donor.gender,
+          bloodGroup: response.data.donor.bloodGroup,
+          city: response.data.donor.city,
+          isHidden: response.data.donor.isHidden,
+          isAdmin: response.data.donor.isAdmin,
         };
         dispatch(
           storeAdmin({
@@ -78,7 +70,7 @@ const Login = () => {
           })
         );
         setError([]);
-        removeSessionExpiredMessage();
+        setToken(response.data.accessToken, response.data.refreshToken);
         navigate("/");
       }
     } catch (error: any) {

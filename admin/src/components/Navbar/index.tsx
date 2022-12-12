@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeAdmin } from "../../redux/admin";
 import type { RootState } from "../../redux/store";
 import { logout } from "../../api/admin";
+import { removeToken } from "../../utils/localStorage";
 import ToggleFullScreen from "../ToggleFullScreen";
 import {
   NavbarHeader,
@@ -22,7 +23,7 @@ import {
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const { fullname, adminId } = useSelector((state: RootState) => state.admin);
+  const { fullname } = useSelector((state: RootState) => state.admin);
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
   useEffect(() => {
@@ -48,8 +49,8 @@ const Navbar = () => {
   const handleLogoutClick = () => {
     (async () => {
       try {
-        await logout(adminId);
-
+        await logout();
+        removeToken();
         dispatch(removeAdmin({}));
       } catch (err) {
         console.error(err);

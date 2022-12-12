@@ -11,8 +11,8 @@ interface IUser {
 const login = async (userData: IUser)=>{
     return await API.post(ENDPOINTS.LOGIN, userData);
 }
-const logout = async (adminId: string)=>{
-    return await API.delete(`${ENDPOINTS.LOGOUT}/${adminId}`)
+const logout = async ()=>{
+    return await API.delete(ENDPOINTS.LOGOUT)
 }
 const changeProfile = async (profileData: IProfileData, adminId: string)=>{
     return await API.put(`${ENDPOINTS.CHANGE_PROFILE}/${adminId}`, profileData)

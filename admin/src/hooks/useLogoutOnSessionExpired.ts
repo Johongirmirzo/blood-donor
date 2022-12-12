@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from "react-redux";
 import {removeAdmin} from '../redux/admin'
-import {removeAdminFromStorage, setSessionExpiredMessage} from '../utils/localStorage'
+import {removeAdminFromStorage, removeToken} from '../utils/localStorage'
 import API from "../api/index";
 
 export const useLogoutOnSessionExpired = () => {
@@ -10,7 +10,7 @@ export const useLogoutOnSessionExpired = () => {
     API.interceptors.response.use(response => response, error =>{
         if(error?.response?.data?.isLoginRequired) {
             removeAdminFromStorage();
-            setSessionExpiredMessage();
+            removeToken();
             setIsSessionExpired(true)
             dispatch(removeAdmin({}))
         }
