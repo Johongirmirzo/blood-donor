@@ -1,6 +1,7 @@
 import {Router} from "express";
 import AdminController from "../controllers/admin"
 import validateAdmin from "../middleware/validateAdmin"
+import {adminLoginRateLimiter} from "../middleware/apiRateLimiters"
 import { 
     loginValidator, 
     changePasswordValidator,
@@ -9,7 +10,7 @@ import {
 
 const router = Router();
 
-router.post("/login", loginValidator, AdminController.login)
+router.post("/login", adminLoginRateLimiter, loginValidator, AdminController.login)
 router.delete("/logout/:adminId", AdminController.logout);
 router.put("/change-profile/:adminId", validateAdmin, changeProfileValidator, AdminController.changeProfile);
 router.put("/change-password/:adminId", validateAdmin, changePasswordValidator, AdminController.changePassword);
