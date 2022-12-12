@@ -1,0 +1,2405 @@
+{
+	"info": {
+		"_postman_id": "6336585b-255e-4e3b-8c8d-018a2f347747",
+		"name": "Blood Donor API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17249289"
+	},
+	"item": [
+		{
+			"name": "donors",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullname",
+									"value": "Test test",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+998911112211",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "t@gmail.comest",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Qoqon",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "qweqweqwe",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "qweqweqwe",
+									"type": "text"
+								},
+								{
+									"key": "bloodGroup",
+									"value": "B+",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/donor/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "jaxongir@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "qweqweqwe",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/donor/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/donor/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "currentPassword",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "newConfirmPassword",
+									"value": "123123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/donor/change-password/63887723eded1b5e0a4b9473",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"change-password",
+								"63887723eded1b5e0a4b9473"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullname",
+									"value": "Jaxongir Rahimov",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+998909000990",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jaxongir@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "bloodGroup",
+									"value": "A+",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Namangan",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "26",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/donor/change-profile/63887723eded1b5e0a4b9473",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"change-profile",
+								"63887723eded1b5e0a4b9473"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-donors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/donor/get-all-donors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"get-all-donors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-donor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/donor/get-donor/63888d58c5cb2ec0c9c0b694",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"get-donor",
+								"63888d58c5cb2ec0c9c0b694"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toggle-donor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/donor/toggle-donor/63888fc19bcf056bfa523ef5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"toggle-donor",
+								"63888fc19bcf056bfa523ef5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-donor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/donor/delete-donor/638890ce76cd9748a4054503",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"donor",
+								"delete-donor",
+								"638890ce76cd9748a4054503"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bloodGroups",
+			"item": [
+				{
+					"name": "get-all-blood-groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blood-group/get-all-blood-groups",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-group",
+								"get-all-blood-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-blood-group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blood-group/get-blood-group/638899d180a2112d0bb5cc6b",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-group",
+								"get-blood-group",
+								"638899d180a2112d0bb5cc6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-blood-group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bloodType",
+									"value": "X-",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/blood-group/create-blood-group",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-group",
+								"create-blood-group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-blood-group",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bloodType",
+									"value": "A+",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/blood-group/edit-blood-group/638899d180a2112d0bb5cc6b",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-group",
+								"edit-blood-group",
+								"638899d180a2112d0bb5cc6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-blood-group",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blood-group/delete-blood-group/6388b1b93bd0f407c6338968",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-group",
+								"delete-blood-group",
+								"6388b1b93bd0f407c6338968"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "get-all-messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/contact-us/get-all-messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contact-us",
+								"get-all-messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/contact-us/get-message/6388b2e44894815ed84b05b1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contact-us",
+								"get-message",
+								"6388b2e44894815ed84b05b1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullname",
+									"value": "Tse tte",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "nozim@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+99899099001",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Hi I'm urgent need of blood please!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contact-us/create-message",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contact-us",
+								"create-message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-message",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/contact-us/delete-message/6388b30c4894815ed84b05b8",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contact-us",
+								"delete-message",
+								"6388b30c4894815ed84b05b8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscribers",
+			"item": [
+				{
+					"name": "get-all-subscribers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/subscriber/get-all-subscribers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriber",
+								"get-all-subscribers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-subscriber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/subscriber/get-subscriber/6388b951c8fff3368b4ee61f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriber",
+								"get-subscriber",
+								"6388b951c8fff3368b4ee61f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-subscriber",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "subscriberEmail",
+									"value": "test@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/subscriber/create-subscriber",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriber",
+								"create-subscriber"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-subscriber",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/subscriber/delete-subscriber/6388b951c8fff3368b4ee61f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriber",
+								"delete-subscriber",
+								"6388b951c8fff3368b4ee61f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "blood-requirers",
+			"item": [
+				{
+					"name": "get-all-blood-requirers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blood-requirer/get-all-blood-requirers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-requirer",
+								"get-all-blood-requirers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-blood-requirer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blood-requirer/get-blood-requirer/6388c33cacd963ff4b1bcb86",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-requirer",
+								"get-blood-requirer",
+								"6388c33cacd963ff4b1bcb86"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-blood-requirer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullname",
+									"value": "Test 123",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+998919989889",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "nigora@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "bloodNeededFor",
+									"value": "sister",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Blood needed urgently please!",
+									"type": "text"
+								},
+								{
+									"key": "donorId",
+									"value": "63888fc19bcf056bfa523ef5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/blood-requirer/create-blood-requirer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-requirer",
+								"create-blood-requirer"
+							],
+							"query": [
+								{
+									"key": "fullname",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blood-requirer/delete-blood-requirer/6388c3939f312e63967096f5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blood-requirer",
+								"delete-blood-requirer",
+								"6388c3939f312e63967096f5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "home-page",
+			"item": [
+				{
+					"name": "get-all-sliders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/home-page/get-all-sliders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"get-all-sliders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-slider",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/home-page/get-slider/63897b3cfc33b8b2ce8711f5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"get-slider",
+								"63897b3cfc33b8b2ce8711f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-slider",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/48514/Downloads/pictures/users/photo1.webp"
+								},
+								{
+									"key": "title",
+									"value": "test 123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Become a donor and save lives",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/home-page/create-slider",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"create-slider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-slider",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Blood Donation, Saving Life!",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Donating a drop of blood goes long way than not donating ",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/48514/Downloads/pictures/users/photo5.webp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/home-page/edit-slider/63897a2bb56a8d979acc64e0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"edit-slider",
+								"63897a2bb56a8d979acc64e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-slider",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/home-page/delete-slider/63897bb88057ef29faec967e",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"delete-slider",
+								"63897bb88057ef29faec967e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-helpful-info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/home-page/get-helpful-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"get-helpful-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-helpful-info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Helpful Information\",\r\n    \"description\": \"Good To Know stuff\",\r\n    \"infoList\": [\r\n        \"Maintain a healthy iron level by eating iron rich foods.\",\r\n        \"Drink an extra 16 oz. of water prior to your donation.\",\r\n        \"Avoid alcohol consumption before your blood donation.\",\r\n        \"Remember to bring the donor card or national ID/Passport.\",\r\n        \"Finally, Try to get a good night sound sleep after donation.\"\r\n        ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/home-page/update-helpful-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"update-helpful-info"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Hey ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-blood-group-info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/home-page/get-blood-group-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"get-blood-group-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-blood-group-info",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/48514/Pictures/Screenshots/UI design principles/Screenshot (41).png"
+								},
+								{
+									"key": "title",
+									"value": "Blood Groups",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "All manking's bloud groups fall into the following categories",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "bloodGroupListDescription",
+									"value": "So this was all about blood groups",
+									"contentType": "application/json",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/home-page/update-blood-group-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"update-blood-group-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-initative",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Become A Part Of Great Work Today",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "You can give blood at any of our blood donation venues all over the world.\nWe have total sixty thousands donor centers and visit thousands of other venues on various occasions.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/home-page/update-initiative",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"update-initiative"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-initiative",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/home-page/get-initiative",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"get-initiative"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-value",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/home-page/get-value",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"get-value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-value",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "value",
+									"value": "We are world largest and trustful blood donation center. We have been working since 1973 with a prestigious vision to helping patient to provide blood. We are working all over the world, organizing blood donation campaign to grow awareness among the people to donate blood.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/home-page/update-value",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"home-page",
+								"update-value"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "about-us-page",
+			"item": [
+				{
+					"name": "get-all-about-us-page-data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-all-about-us-page-data",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-all-about-us-page-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-hero-image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-hero-image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-hero-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-hero-image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "hero-image",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/48514/Pictures/Screenshots/UI design principles/Screenshot (46).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/update-hero-image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"update-hero-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-about-us",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "about-us-image",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/48514/Downloads/pictures/users/photo2.webp"
+								},
+								{
+									"key": "title",
+									"value": "Who We Are?",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Blood Buddies is for public donation center with blood donation members in the changing health care system.",
+									"type": "text"
+								},
+								{
+									"key": "aboutUsList",
+									"value": "[\"Specialist blood donors and clinical supervision.\",\n\"Increasing communication with our members.\",\n\"High quality assessment, diagnosis and treatment.\",\n\"Examine critically to ensure alignment.\",\n\"The extra care of a multi-disciplinary team.\"\n    ]",
+									"contentType": "application/json",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/update-about-us",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"update-about-us"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-about-us",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-about-us",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-about-us"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-volunteers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-all-volunteers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-all-volunteers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-volunteer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-volunteer/6389e185107457609f1e082e",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-volunteer",
+								"6389e185107457609f1e082e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-volunteer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "volunteer-image",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/48514/Downloads/pictures/users/photo5.webp"
+								},
+								{
+									"key": "volunteerName",
+									"value": "test 123",
+									"type": "text"
+								},
+								{
+									"key": "volunteerTitle",
+									"value": "Assistant",
+									"type": "text"
+								},
+								{
+									"key": "volunteerSocialMedia",
+									"value": "[{\"instagram\": \"url\"}, {\"facebook\": \"url\"}, {\"twitter\": \"url\"}, {\"youtube\": \"url\"}]",
+									"contentType": "application/json",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/create-volunteer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"create-volunteer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-volunteer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "volunteer-image",
+									"type": "file",
+									"src": "/C:/Users/48514/Downloads/pictures/users/photo4.webp"
+								},
+								{
+									"key": "volunteerName",
+									"value": "Robor Alisa Del Roy",
+									"type": "text"
+								},
+								{
+									"key": "volunteerTitle",
+									"value": "Full-Stack Manager",
+									"type": "text"
+								},
+								{
+									"key": "volunteerSocialMedia",
+									"value": "[123]",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/edit-volunteer/6389e185107457609f1e082e",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"edit-volunteer",
+								"6389e185107457609f1e082e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-volunteer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/delete-volunteer/6389eca05f8620743f22b007",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"delete-volunteer",
+								"6389eca05f8620743f22b007"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-volunteer-section",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-volunteer-section",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-volunteer-section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-volunteer-section",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "volunteer-section",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/48514/Pictures/Screenshots/Screenshot (337).png"
+								},
+								{
+									"key": "title",
+									"value": "The volunteers who give their time and talents help to fulfill our mission.",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "our volunteer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/update-volunteer-section",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"update-volunteer-section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-our-achievements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-our-achievements",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-our-achievements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-our-achievements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"OUR ACHIEVEMENTS\",\r\n    \"description\": \"We have been working since 1973 with a prestigious vision to helping patient to provide blood.\",\r\n    \"achievementList\": [\r\n        {\"title\": \"Success Smile\", \"result\": 1232},\r\n        {\"title\": \"Happy Donors\", \"result\": 2232},\r\n        {\"title\": \"Happy Recipient\", \"result\": 1900},\r\n        {\"title\": \"Total Awards\", \"result\": 4500}\r\n        \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/update-our-achievements",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"update-our-achievements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-donor-reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-all-donor-reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-all-donor-reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-donor-review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-donor-review/638a024b917b20fe59333be8",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-donor-review",
+								"638a024b917b20fe59333be8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-donor-review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "donorReview",
+									"value": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
+									"type": "text"
+								},
+								{
+									"key": "donorName",
+									"value": "Nim Chan",
+									"type": "text"
+								},
+								{
+									"key": "donorProfession",
+									"value": "Developer at Microsoft",
+									"type": "text"
+								},
+								{
+									"key": "donorLocation",
+									"value": "Ney York, USA",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/create-donor-review",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"create-donor-review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-donor-review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "donorReview",
+									"value": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+									"type": "text"
+								},
+								{
+									"key": "donorName",
+									"value": "Lorem Alestar",
+									"type": "text"
+								},
+								{
+									"key": "donorProfession",
+									"value": "Master Cook",
+									"type": "text"
+								},
+								{
+									"key": "donorLocation",
+									"value": "Delhi, India",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/edit-donor-review/638a024b917b20fe59333be8",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"edit-donor-review",
+								"638a024b917b20fe59333be8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-donor-review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/delete-donor-review/638a024b917b20fe59333be8",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"delete-donor-review",
+								"638a024b917b20fe59333be8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-donor-review-section",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/get-donor-review-section",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"get-donor-review-section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-donor-review-section",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "donor-review-section",
+									"type": "file",
+									"src": "/C:/Users/48514/Pictures/Screenshots/Screenshot (337).png"
+								},
+								{
+									"key": "title",
+									"value": "JOIN WITH US AND SAVE LIFE",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Awesome Words From Members",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/about-us-page/update-donor-review-section",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"about-us-page",
+								"update-donor-review-section"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gallery-page",
+			"item": [
+				{
+					"name": "get-all-gallery-page-data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gallery-page/get-all-gallery-page-data",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gallery-page",
+								"get-all-gallery-page-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-hero-image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gallery-page/get-hero-image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gallery-page",
+								"get-hero-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-hero-image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gallery-page-section",
+									"type": "file",
+									"src": "/C:/Users/48514/Pictures/Screenshots/Screenshot (349).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gallery-page/update-hero-image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gallery-page",
+								"update-hero-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-gallery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gallery-page/get-gallery",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gallery-page",
+								"get-gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-gallery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gallery-image",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/48514/Downloads/pictures/users/photo9.webp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gallery-page/create-gallery",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gallery-page",
+								"create-gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-gallery",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gallery-page/delete-gallery/638abac3911317ffbca3d30b",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gallery-page",
+								"delete-gallery",
+								"638abac3911317ffbca3d30b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-gallery-section",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gallery-page/get-gallery-section",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gallery-page",
+								"get-gallery-section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-gallery-section",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "test 123 test 123 test 123 test 123 test 123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test 123 test 123 test 123 test 123 test 123 test 123 test 123 test 123 test 123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gallery-page/update-gallery-section",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gallery-page",
+								"update-gallery-section"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "faq-page",
+			"item": [
+				{
+					"name": "get-hero-image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/get-hero-image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"get-hero-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-hero-image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "hero-image",
+									"type": "file",
+									"src": "/C:/Users/48514/Downloads/pictures/users/photo8.webp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/update-hero-image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"update-hero-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-faq-page-data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/get-all-faq-page-data",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"get-all-faq-page-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-faqs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/get-all-faqs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"get-all-faqs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-faq",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/get-faq/638ac9d55139cf23493707ec",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"get-faq",
+								"638ac9d55139cf23493707ec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-faq",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "question",
+									"value": "Is it rigght to be wrong?",
+									"type": "text"
+								},
+								{
+									"key": "answer",
+									"value": "Depends on contextsd sads dasd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/create-faq",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"create-faq"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-faq",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "question",
+									"value": "zzzzzzzzzzzzzzzzzzzzzzz",
+									"type": "text"
+								},
+								{
+									"key": "answer",
+									"value": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/edit-faq/638ac9d55139cf23493707ec",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"edit-faq",
+								"638ac9d55139cf23493707ec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-faq",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/delete-faq/638ac9d55139cf23493707ec",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"delete-faq",
+								"638ac9d55139cf23493707ec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sponors-section",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/get-sponsors-section",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"get-sponsors-section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-sponsors-section",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "zzzzzzzzzzzzzzzzz",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "ssssssssssssssssssssssssss",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/update-sponsors-section",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"update-sponsors-section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-sponsors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/get-all-sponsors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"get-all-sponsors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-sponsor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sponsor-logo",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/48514/Pictures/Screenshots/Screenshot (344).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/create-sponsor",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"create-sponsor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-sponsor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faq-page/delete-sponsor/638acc60121a1fefba2e1697",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faq-page",
+								"delete-sponsor",
+								"638acc60121a1fefba2e1697"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contact-us-page",
+			"item": [
+				{
+					"name": "get-all-contact-us-page-data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/contact-us-page/get-all-contact-us-page-data",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contact-us-page",
+								"get-all-contact-us-page-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-hero-image",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update-hero-image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "contact-us-hero",
+									"type": "file",
+									"src": "/C:/Users/48514/Pictures/Screenshots/Screenshot (435).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contact-us-page/update-hero-image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contact-us-page",
+								"update-hero-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-contact-info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/contact-us-page/get-contact-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contact-us-page",
+								"get-contact-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-contact-info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "supportEmail",
+									"value": "support@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "helpEmail",
+									"value": "help@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Nt 123 S, New York, USA",
+									"type": "text"
+								},
+								{
+									"key": "officePhoneNumber",
+									"value": "+12232323232",
+									"type": "text"
+								},
+								{
+									"key": "cellPhoneNumber",
+									"value": "+998912252312",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contact-us-page/update-contact-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contact-us-page",
+								"update-contact-info"
+							],
+							"query": [
+								{
+									"key": "suppor",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8800/api"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminRoutes = exports.contactUsPageRoutes = exports.faqPageRoutes = exports.galleryPageRoutes = exports.aboutUsPageRoutes = exports.homePageRoutes = exports.bloodRequirerRoutes = exports.subscriberRoutes = exports.contactUsRoutes = exports.bloodGroupRoutes = exports.donorRoutes = void 0;
+const donor_1 = __importDefault(require("./donor"));
+exports.donorRoutes = donor_1.default;
+const blood_group_1 = __importDefault(require("./blood-group"));
+exports.bloodGroupRoutes = blood_group_1.default;
+const contact_us_1 = __importDefault(require("./contact-us"));
+exports.contactUsRoutes = contact_us_1.default;
+const subscriber_1 = __importDefault(require("./subscriber"));
+exports.subscriberRoutes = subscriber_1.default;
+const blood_requirer_1 = __importDefault(require("./blood-requirer"));
+exports.bloodRequirerRoutes = blood_requirer_1.default;
+const home_page_1 = __importDefault(require("./home-page"));
+exports.homePageRoutes = home_page_1.default;
+const about_us_page_1 = __importDefault(require("./about-us-page"));
+exports.aboutUsPageRoutes = about_us_page_1.default;
+const gallery_page_1 = __importDefault(require("./gallery-page"));
+exports.galleryPageRoutes = gallery_page_1.default;
+const faq_page_1 = __importDefault(require("./faq-page"));
+exports.faqPageRoutes = faq_page_1.default;
+const contact_us_page_1 = __importDefault(require("./contact-us-page"));
+exports.contactUsPageRoutes = contact_us_page_1.default;
+const admin_1 = __importDefault(require("./admin"));
+exports.adminRoutes = admin_1.default;

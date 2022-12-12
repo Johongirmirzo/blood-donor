@@ -1,0 +1,28 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const uploadImage_1 = require("../middleware/uploadImage");
+const validators_1 = require("../middleware/validators");
+const validateAdmin_1 = __importDefault(require("../middleware/validateAdmin"));
+const isAdmin_1 = __importDefault(require("../middleware/isAdmin"));
+const faq_page_1 = __importDefault(require("../controllers/faq-page"));
+const router = (0, express_1.Router)();
+router.get("/get-all-faq-page-data", faq_page_1.default.getAllFaqPageData);
+router.get("/get-hero-image", faq_page_1.default.getHeroImage);
+router.post("/update-hero-image", validateAdmin_1.default, isAdmin_1.default, uploadImage_1.uploadImage.single("faq-page-hero-image"), faq_page_1.default.updateHeroImage);
+router.get("/get-faqs-section", faq_page_1.default.getFaqsSection);
+router.post("/update-faqs-section", validateAdmin_1.default, isAdmin_1.default, faq_page_1.default.updateFaqsSection);
+router.get("/get-all-faqs", faq_page_1.default.getAllFaqs);
+router.get("/get-faq/:faqId", faq_page_1.default.getFaq);
+router.post("/create-faq", validateAdmin_1.default, isAdmin_1.default, validators_1.faqValidator, faq_page_1.default.createFaq);
+router.put("/edit-faq/:faqId", validateAdmin_1.default, isAdmin_1.default, validators_1.faqValidator, faq_page_1.default.editFaq);
+router.delete("/delete-faq/:faqId", validateAdmin_1.default, isAdmin_1.default, faq_page_1.default.deleteFaq);
+router.get("/get-all-sponsors", faq_page_1.default.getAllSponsors);
+router.post("/create-sponsor", validateAdmin_1.default, isAdmin_1.default, uploadImage_1.uploadImage.single("sponsor-logo"), faq_page_1.default.createSponsor);
+router.delete("/delete-sponsor/:sponsorId", validateAdmin_1.default, isAdmin_1.default, faq_page_1.default.deleteSponsor);
+router.get("/get-sponsors-section", faq_page_1.default.getSponsorsSection);
+router.post("/update-sponsors-section", validateAdmin_1.default, isAdmin_1.default, faq_page_1.default.updateSponsorsSection);
+exports.default = router;

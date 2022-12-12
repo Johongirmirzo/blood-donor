@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const uploadImage_1 = require("../middleware/uploadImage");
+const validators_1 = require("../middleware/validators");
+const validateAdmin_1 = __importDefault(require("../middleware/validateAdmin"));
+const isAdmin_1 = __importDefault(require("../middleware/isAdmin"));
+const gallery_page_1 = __importDefault(require("../controllers/gallery-page"));
+const router = (0, express_1.Router)();
+router.get("/get-all-gallery-page-data", gallery_page_1.default.getAllGalleryPageData);
+router.get("/get-hero-image", gallery_page_1.default.getHeroImage);
+router.post("/update-hero-image", validateAdmin_1.default, isAdmin_1.default, uploadImage_1.uploadImage.single("gallery-hero-image"), gallery_page_1.default.updateHeroImage);
+router.get("/get-gallery", gallery_page_1.default.getGallery);
+router.post("/create-gallery", validateAdmin_1.default, isAdmin_1.default, uploadImage_1.uploadImage.single("gallery-image"), gallery_page_1.default.createGallery);
+router.delete("/delete-gallery/:imageId", validateAdmin_1.default, isAdmin_1.default, uploadImage_1.uploadImage.single("gallery-image"), gallery_page_1.default.deleteGallery);
+router.get("/get-gallery-section", uploadImage_1.uploadImage.array("gallery-images", 100), gallery_page_1.default.getGallerySection);
+router.post("/update-gallery-section", validateAdmin_1.default, isAdmin_1.default, validators_1.galleryValidator, gallery_page_1.default.updateGallerySection);
+exports.default = router;
