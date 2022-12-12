@@ -11,7 +11,7 @@ import {
 const router = Router();
 
 router.post("/login", adminLoginRateLimiter, loginValidator, AdminController.login)
-router.delete("/logout/:adminId", AdminController.logout);
+router.delete("/logout", AdminController.logout);
 router.put("/change-profile/:adminId", validateAdmin, changeProfileValidator, AdminController.changeProfile);
 router.put("/change-password/:adminId", validateAdmin, changePasswordValidator, AdminController.changePassword);
 router.get("/get-all-donors", AdminController.getAllDonors);

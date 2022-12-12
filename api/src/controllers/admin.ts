@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
 import bcrypt from "bcrypt";
-import sanitizeData from "../utils/sanitizeData";
+import generateToken from "../utils/generateToken";
 import Donor, {IDonor} from "../models/donor";
 import BloodRequirer from "../models/blood-requirer";
 import Session from "../models/session";
@@ -60,22 +60,16 @@ const AdminController = {
             }
             if(!(await bcrypt.compare(password, donor.password))){
                 return res.status(400).json({error: "Incorrect Password!"});
-            }
-            await Session.create({donorId: donor._id});
-            res.cookie("adminId", donor._id, {
-                httpOnly: true,
-                maxAge: 1000 * 60 * 60 * 24,
-            })
-            res.json(donor)
+            }             
+            const accessToken = generateToken({id: donor._id, fullname: donor.fullname, isAdmin: donor.isAdmin, isHidden: donor.isHidden, expirationTime: `${process.env.ACCESS_TOKEN_EXPIRATION_TIME}`})
+            const refreshToken = generateToken({id: donor._id, fullname: donor.fullname, isAdmin: donor.isAdmin, isHidden: donor.isHidden, expirationTime: `${process.env.REFRESH_TOKEN_EXPIRATION_TIME}`})
+            res.json({donor, accessToken, refreshToken});
         }catch(err: any){
             res.status(400).json({error: err.message})
         }
     },
     logout: async (req: Request, res: Response)=>{
-        try {
-            const {adminId} = req.params;
-            res.clearCookie("adminId");
-            await Session.deleteOne({donorId: adminId});
+        try { 
             req.donor = {id: "", fullname: "", isHidden: false, isAdmin: false}
             res.json({message: "Admin's logged out successfully"})
         }catch(err: any){

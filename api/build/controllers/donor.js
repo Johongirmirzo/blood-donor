@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const generateToken_1 = __importDefault(require("../utils/generateToken"));
 const sanitizeData_1 = __importDefault(require("../utils/sanitizeData"));
 const donor_1 = __importDefault(require("../models/donor"));
 const blood_requirer_1 = __importDefault(require("../models/blood-requirer"));
@@ -77,12 +78,9 @@ const DonorController = {
             if (!(yield bcrypt_1.default.compare(password, donor.password))) {
                 return res.status(400).json({ error: "Incorrect Password!" });
             }
-            yield session_1.default.create({ donorId: donor._id });
-            res.cookie("donorId", donor._id, {
-                httpOnly: true,
-                maxAge: 1000 * 60 * 60 * 24,
-            });
-            res.json(donor);
+            const accessToken = (0, generateToken_1.default)({ id: donor._id, fullname: donor.fullname, isAdmin: donor.isAdmin, isHidden: donor.isHidden, expirationTime: `${process.env.ACCESS_TOKEN_EXPIRATION_TIME}` });
+            const refreshToken = (0, generateToken_1.default)({ id: donor._id, fullname: donor.fullname, isAdmin: donor.isAdmin, isHidden: donor.isHidden, expirationTime: `${process.env.REFRESH_TOKEN_EXPIRATION_TIME}` });
+            res.json({ donor, accessToken, refreshToken });
         }
         catch (err) {
             res.status(400).json({ error: err.message });
@@ -115,9 +113,6 @@ const DonorController = {
     }),
     logout: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const { donorId } = req.params;
-            res.clearCookie("donorId");
-            yield session_1.default.deleteOne({ donorId });
             req.donor = { id: "", fullname: "", isHidden: false, isAdmin: false };
             res.json({ message: "User's logged out successfully" });
         }

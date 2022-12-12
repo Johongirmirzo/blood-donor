@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 export interface IDonor extends mongoose.Document {
+    id: string;
     fullname: string;
     phoneNumber: string;
     email: string;

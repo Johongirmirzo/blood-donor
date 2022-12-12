@@ -13,25 +13,42 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const donor_1 = __importDefault(require("../models/donor"));
-const validateAdmin = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const { adminId } = req.cookies;
-    if (adminId) {
-        const admin = yield donor_1.default.findById(adminId);
-        if (admin) {
-            req.donor = {
-                id: admin._id,
-                fullname: admin.fullname,
-                isHidden: admin.isHidden,
-                isAdmin: admin.isAdmin
-            };
-            next();
+const reissueAccessToken_1 = __importDefault(require("../utils/reissueAccessToken"));
+const decodeToken_1 = __importDefault(require("../utils/decodeToken"));
+const validateDonor = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const authheader = req.headers.authorization;
+    if (authheader) {
+        const accessToken = authheader.split("Bearer ")[1];
+        const refreshToken = req.headers.refreshtoken.split("Bearer ")[1];
+        if (accessToken) {
+            const { decoded, expired } = (0, decodeToken_1.default)(accessToken);
+            if (decoded) {
+                req.donor = (yield donor_1.default.findById(decoded.id));
+                console.log("Admin", req.donor);
+                return next();
+            }
+            if (expired && refreshToken) {
+                const accessToken = (0, reissueAccessToken_1.default)(refreshToken);
+                if (accessToken) {
+                    const { decoded } = (0, decodeToken_1.default)(accessToken);
+                    req.donor = (yield donor_1.default.findById(decoded.id));
+                    console.log("Admin", req.donor);
+                    return next();
+                }
+                else {
+                    res.status(401).json({ isLoginRequired: true, message: "Your access and refresh tokens are expired! Please login again!" });
+                }
+            }
+            else {
+                res.status(401).json({ isLoginRequired: true, message: "Invalid/Expired token" });
+            }
         }
         else {
-            res.status(401).json({ isLoginRequired: true, message: "Login session expired! Please login a new!" });
+            res.status(401).json({ isLoginRequired: true, message: "Bearer \"accesstoken\" is missing! Please login!" });
         }
     }
     else {
-        res.status(401).json({ isLoginRequired: true, message: "Login session expired! Please login a new!" });
+        res.status(401).json({ isLoginRequired: true, message: "Auth Headers are missing! Please login!" });
     }
 });
-exports.default = validateAdmin;
+exports.default = validateDonor;

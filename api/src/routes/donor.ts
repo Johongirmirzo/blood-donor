@@ -14,7 +14,7 @@ const router = Router();
 
 router.post("/login", donorLoginRateLimiter, loginValidator, DonorController.login);
 router.post("/register", donorRegisterRateLimiter, registerValidator, DonorController.register);
-router.delete("/logout/:donorId", DonorController.logout);
+router.delete("/logout", DonorController.logout);
 router.put("/change-profile/:donorId", validateDonor, changeProfileValidator, DonorController.changeProfile);
 router.put("/change-password/:donorId", validateDonor, changePasswordValidator, DonorController.changePassword);
 
