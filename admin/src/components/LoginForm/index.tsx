@@ -76,7 +76,7 @@ const Login = () => {
     } catch (error: any) {
       setIsLoading(false);
 
-      if (error.response.status === 429) {
+      if (error?.response?.status === 429) {
         setError([error.response.data]);
       } else {
         setError([error.response.data.error]);
