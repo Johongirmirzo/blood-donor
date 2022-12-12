@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../../../redux/store";
 import { logoutUser } from "../../../redux/auth";
 import { logout } from "../../../api/donor";
-import { removeSessionExpiredMessage } from "../../../utils/localStorage";
+import { removeToken } from "../../../utils/localStorage";
 import { NavbarProfileProps } from "./index.types";
 import {
   NavbarCircleBox,
@@ -57,7 +57,7 @@ const NavbarProfile = ({ toggleMenu }: NavbarProfileProps) => {
         if (toggleMenu) {
           toggleMenu();
         }
-        removeSessionExpiredMessage();
+        removeToken();
         navigate("/login");
       } catch (err) {
         console.error(err);

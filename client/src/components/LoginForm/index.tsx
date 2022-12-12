@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
@@ -7,10 +7,7 @@ import { IDonorLogin } from "../../types/donor";
 import { login } from "../../api/donor";
 import { loginUser } from "../../redux/auth";
 import { LoginFormBtn } from "./index.styled";
-import {
-  getSessionExpiredMessage,
-  removeSessionExpiredMessage,
-} from "../../utils/localStorage";
+import { setToken } from "../../utils/localStorage";
 import {
   Form,
   FormControl,
@@ -30,20 +27,13 @@ const LoginForm = () => {
   const [error, setError] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const sessionExpiredMessage = getSessionExpiredMessage();
-    if (sessionExpiredMessage) {
-      setError([sessionExpiredMessage]);
-    }
-  }, []);
-
   const handleLoginDonorSubmit = async (loginData: IDonorLogin) => {
     try {
       setIsLoading(true);
       const loginResponse = await login(loginData);
-      dispatch(loginUser({ authenticatedUser: loginResponse.data }));
+      dispatch(loginUser({ authenticatedUser: loginResponse.data.donor }));
       setIsLoading(false);
-      removeSessionExpiredMessage();
+      setToken(loginResponse.data.accessToken, loginResponse.data.refreshToken);
       navigate("/blood-requests");
     } catch (err: any) {
       if (err.response.data) {

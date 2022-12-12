@@ -55,6 +55,7 @@ const NavbarHeaderBottom = styled.div`
       top: 0;
       width: 100%;
       background: #fff;
+      z-index: 9999;
     `};
 `;
 const NavbarHeaderLogo = styled(Link)`

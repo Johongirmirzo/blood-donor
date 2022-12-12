@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from "react-redux";
 import {logoutUser} from '../redux/auth'
-import { removeDonorFromStorage, setSessionExpiredMessage } from '../utils/localStorage'
+import { removeDonorFromStorage, removeToken } from '../utils/localStorage'
 import API from "../api/index";
 
 export const useLogoutOnSessionExpired = () => {
@@ -10,7 +10,7 @@ export const useLogoutOnSessionExpired = () => {
     API.interceptors.response.use(response => response, error =>{
         if(error?.response?.data?.isLoginRequired) {
             removeDonorFromStorage();
-            setSessionExpiredMessage();
+            removeToken();
             setIsSessionExpired(true)
             dispatch(logoutUser({}))
         }
