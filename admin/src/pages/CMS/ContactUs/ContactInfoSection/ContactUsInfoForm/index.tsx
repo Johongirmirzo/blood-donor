@@ -11,7 +11,6 @@ import {
   FormControl,
   FormLabel,
   FormInput,
-  FormTextArea,
   FormButton,
   FormFieldError,
 } from "../../../../../styles/UI/Form/index.styled";

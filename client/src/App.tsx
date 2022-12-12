@@ -60,13 +60,6 @@ const App = () => {
     })();
   }, []);
 
-  useEffect(() => {
-    if (isSessionExpired) {
-      navigate("/login");
-    }
-    console.log(isSessionExpired);
-  }, [isSessionExpired]);
-
   const fetchAllHomePageData = async () => {
     try {
       const homePageResponse = await getAllHomePageData();
