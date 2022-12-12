@@ -32,6 +32,9 @@ const ContactUsForm = () => {
       setIsUpdateSuccessfull(true);
       setError(["Your message is received! Our team contact you ASAP!"]);
     } catch (err: any) {
+      if (err.response?.data?.error) {
+        setError([err.response?.data?.error]);
+      }
       console.error(err.response);
       setIsUpdateSuccessfull(false);
       setIsLoading(false);
