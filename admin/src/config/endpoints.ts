@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8800/api";
+const BASE_URL = "https://blood-donor.onrender.com/api";
 
 const ENDPOINTS = {
     LOGIN: "/admin/login",
