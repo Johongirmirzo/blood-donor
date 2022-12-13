@@ -9,7 +9,7 @@ const ContactUsPageController = {
         try {
             const contactUsPage = await ContactUsPage.findOne() as IContactUsPage;
             if(!contactUsPage){
-                const newContactUsPage = await ContactUsPage.create({contactUsInfo: {}});
+                const newContactUsPage = await ContactUsPage.create({});
                 return res.status(201).json(newContactUsPage);
             }
             res.json(contactUsPage);

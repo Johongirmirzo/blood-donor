@@ -67,11 +67,11 @@ const ContactUsInfoForm = () => {
         ))}
       <Formik
         initialValues={{
-          helpEmail: contactUsInfo.helpEmail || "",
-          supportEmail: contactUsInfo.supportEmail || "",
-          address: contactUsInfo.address || "",
-          officePhoneNumber: contactUsInfo.officePhoneNumber || "",
-          cellPhoneNumber: contactUsInfo.cellPhoneNumber || "",
+          helpEmail: contactUsInfo?.helpEmail || "",
+          supportEmail: contactUsInfo?.supportEmail || "",
+          address: contactUsInfo?.address || "",
+          officePhoneNumber: contactUsInfo?.officePhoneNumber || "",
+          cellPhoneNumber: contactUsInfo?.cellPhoneNumber || "",
         }}
         onSubmit={(faqData) => {
           handleCreateFaqSubmit(faqData);
