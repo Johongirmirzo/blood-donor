@@ -3,9 +3,9 @@ import {Express} from "express"
 
 const setAllowedOrigins = (app: Express)=>{
     const allowedDomains = [process.env.CLIENT_URL || "http://localhost:3000", process.env.ADMIN_URL || "http://localhost:3001"]
+    console.log("Allowed domains", allowedDomains)
     app.use(cors({
         origin: function (origin, callback) {
-            console.log("Allowed domains", allowedDomains)
             console.log("Origin Check", origin)
             // bypass the requests with no origin (like curl requests, mobile apps, etc )
             if (!origin) return callback(null, true);
