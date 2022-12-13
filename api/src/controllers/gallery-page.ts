@@ -69,7 +69,7 @@ const GalleryPageController = {
                 imageCreationDate: new Date().toString()
             })
             await galleryPage.save();
-            res.status(201).json(galleryPage.gallery.images.at(-1));
+            res.status(201).json(galleryPage.gallery.images[galleryPage.gallery.images.length - 1]);
         }catch(err: any){
             res.status(400).json({error: err.message});
         }

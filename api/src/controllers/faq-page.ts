@@ -99,7 +99,7 @@ const FaqPageController = {
             faqPage.faq.faqList.push({question, answer});
              
             await faqPage.save();
-            res.status(201).json(faqPage.faq.faqList.at(-1));
+            res.status(201).json(faqPage.faq.faqList[faqPage.faq.faqList.length - 1]);
         }catch(err: any){
             res.status(400).json({error: err.message})
         }
@@ -149,7 +149,7 @@ const FaqPageController = {
                 imageCreationDate: new Date().toString()
             })
             await faqPage.save();
-            res.json(faqPage.sponsor.images.at(-1));
+            res.json(faqPage.sponsor.images[faqPage.sponsor.images.length - 1]);
         }catch(err: any){
             res.status(400).json({error: err.message})
         }

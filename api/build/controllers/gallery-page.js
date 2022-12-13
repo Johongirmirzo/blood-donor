@@ -109,7 +109,7 @@ const GalleryPageController = {
                 imageCreationDate: new Date().toString()
             });
             yield galleryPage.save();
-            res.status(201).json(galleryPage.gallery.images.at(-1));
+            res.status(201).json(galleryPage.gallery.images[galleryPage.gallery.images.length - 1]);
         }
         catch (err) {
             res.status(400).json({ error: err.message });

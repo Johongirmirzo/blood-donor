@@ -1,4 +1,4 @@
-import {object, string, array} from "yup";
+import {object, string} from "yup";
 
 const donorReviewSectionSchema =  object({
     title:

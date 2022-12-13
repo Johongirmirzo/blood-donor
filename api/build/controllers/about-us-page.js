@@ -167,7 +167,7 @@ const AboutUsPageController = {
                 volunteerImagePath: req.file.filename
             });
             yield aboutUsData.save();
-            res.status(201).json(aboutUsData.volunteers.volunteers.at(-1));
+            res.status(201).json(aboutUsData.volunteers.volunteers[aboutUsData.volunteers.volunteers.length - 1]);
         }
         catch (err) {
             res.status(400).json({ error: err.message });
@@ -311,7 +311,7 @@ const AboutUsPageController = {
                 donorLocation
             });
             yield aboutUsData.save();
-            res.status(201).json(aboutUsData.donorReviews.donors.at(-1));
+            res.status(201).json(aboutUsData.donorReviews.donors[aboutUsData.donorReviews.donors.length - 1]);
         }
         catch (err) {
             res.status(400).json({ error: err.message });

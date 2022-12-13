@@ -66,7 +66,7 @@ const HomePageController = {
             });
             yield homePage.save();
             console.log(sliderImage);
-            res.json(homePage.sliders.at(-1));
+            res.json(homePage.sliders[homePage.sliders.length - 1]);
         }
         catch (err) {
             console.error(err);

@@ -137,7 +137,7 @@ const FaqPageController = {
             const faqPage = yield faq_page_1.default.findOne();
             faqPage.faq.faqList.push({ question, answer });
             yield faqPage.save();
-            res.status(201).json(faqPage.faq.faqList.at(-1));
+            res.status(201).json(faqPage.faq.faqList[faqPage.faq.faqList.length - 1]);
         }
         catch (err) {
             res.status(400).json({ error: err.message });
@@ -191,7 +191,7 @@ const FaqPageController = {
                 imageCreationDate: new Date().toString()
             });
             yield faqPage.save();
-            res.json(faqPage.sponsor.images.at(-1));
+            res.json(faqPage.sponsor.images[faqPage.sponsor.images.length - 1]);
         }
         catch (err) {
             res.status(400).json({ error: err.message });
