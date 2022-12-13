@@ -5,7 +5,7 @@ const donorReviewSectionSchema =  object({
         string().
         required("Title can't be empty!").
         min(5, "Minimum allowed title length is 5").
-        max(55, "Maximum allowed title length is 55"),
+        max(155, "Maximum allowed title length is 155"),
     description:
         string().
         required("Description can't be empty!").
