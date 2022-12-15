@@ -35,7 +35,9 @@ const ContactUsForm = () => {
       if (err.response?.data?.error) {
         setError([err.response?.data?.error]);
       }
-      console.error(err.response);
+      if (err.response?.data?.length) {
+        setError([err.response?.data]);
+      }
       setIsUpdateSuccessfull(false);
       setIsLoading(false);
     }

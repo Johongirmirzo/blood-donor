@@ -27,6 +27,9 @@ const FooterSubscribeForm = () => {
       if (err.response?.data?.error) {
         setError([err.response?.data?.error]);
       }
+      if (err.response?.data?.length) {
+        setError([err.response?.data]);
+      }
       console.error(err.response);
       setIsLoading(false);
       setIsUpdateSuccessfull(false);
