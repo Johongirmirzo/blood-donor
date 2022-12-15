@@ -44,7 +44,7 @@ const ContactUsPageController = {
         try {
             const contactUsPage = yield contact_us_page_1.default.findOne();
             if (!contactUsPage) {
-                const newContactUsPage = yield contact_us_page_1.default.create({ contactUsInfo: {} });
+                const newContactUsPage = yield contact_us_page_1.default.create({});
                 return res.status(201).json(newContactUsPage);
             }
             res.json(contactUsPage);

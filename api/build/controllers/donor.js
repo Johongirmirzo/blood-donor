@@ -16,58 +16,7 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const generateToken_1 = __importDefault(require("../utils/generateToken"));
 const sanitizeData_1 = __importDefault(require("../utils/sanitizeData"));
 const donor_1 = __importDefault(require("../models/donor"));
-const blood_requirer_1 = __importDefault(require("../models/blood-requirer"));
-const session_1 = __importDefault(require("../models/session"));
 const DonorController = {
-    getAllDonors: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        try {
-            const donors = yield donor_1.default.find();
-            res.json(donors.filter(donor => !donor.isAdmin));
-        }
-        catch (err) {
-            res.status(400).json({ error: err.message });
-        }
-    }),
-    getDonor: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        try {
-            const { donorId } = req.params;
-            const donor = yield donor_1.default.findById(donorId);
-            res.json(donor);
-        }
-        catch (err) {
-            res.status(400).json({ error: err.message });
-        }
-    }),
-    toggleDonor: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        try {
-            const { donorId } = req.params;
-            const donor = yield donor_1.default.findById(donorId);
-            donor.isHidden = !donor.isHidden;
-            yield donor.save();
-            res.json({ message: "Donor is toggled successfully!" });
-        }
-        catch (err) {
-            res.status(400).json({ error: err.message });
-        }
-    }),
-    deleteDonor: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        try {
-            const { donorId } = req.params;
-            console.log(donorId);
-            console.log(req.donor);
-            if (donorId === req.donor.id) {
-                res.clearCookie("donorId");
-                yield session_1.default.deleteOne({ donorId: req.donor.id });
-                req.donor = { id: "", fullname: "", isHidden: false, isAdmin: false };
-            }
-            yield donor_1.default.findByIdAndDelete(donorId);
-            yield blood_requirer_1.default.deleteMany({ donorId });
-            res.json({ message: "Donor is deleted successfully!" });
-        }
-        catch (err) {
-            res.status(400).json({ error: err.message });
-        }
-    }),
     login: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { email, password } = req.body;

@@ -12,6 +12,7 @@ export interface IDonor extends mongoose.Document {
     password: string;
     isAdmin: boolean;
     isHidden: boolean;
+    isDemoMode?: boolean;
 }
 
 const DonorSchema = new mongoose.Schema({

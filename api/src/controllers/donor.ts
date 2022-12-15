@@ -7,51 +7,6 @@ import BloodRequirer from "../models/blood-requirer";
 import Session from "../models/session";
 
 const DonorController = {
-    getAllDonors: async (req: Request, res: Response)=>{
-        try {
-            const donors = await Donor.find()
-            res.json(donors.filter(donor => !donor.isAdmin));
-        }catch(err: any){
-            res.status(400).json({error: err.message})
-        }
-    },
-    getDonor: async (req: Request, res: Response)=>{
-        try {
-            const {donorId} = req.params;
-            const donor = await Donor.findById(donorId);
-            res.json(donor);
-        }catch(err: any){
-            res.status(400).json({error: err.message})
-        }
-    },
-    toggleDonor: async (req: Request, res: Response)=>{
-        try {
-            const {donorId} = req.params;
-            const donor = await Donor.findById(donorId) as IDonor;
-            donor.isHidden = !donor.isHidden;
-            await donor.save();
-            res.json({message: "Donor is toggled successfully!"})
-        }catch(err: any){
-            res.status(400).json({error: err.message})
-        }
-    },
-    deleteDonor: async (req: Request, res: Response)=>{
-        try {
-            const {donorId} = req.params;
-            console.log(donorId);
-            console.log(req.donor)
-            if(donorId === req.donor.id){
-                res.clearCookie("donorId");
-                await Session.deleteOne({donorId: req.donor.id});
-                req.donor = {id: "", fullname: "", isHidden: false, isAdmin: false}
-            }
-            await Donor.findByIdAndDelete(donorId);
-            await BloodRequirer.deleteMany({donorId})
-            res.json({message: "Donor is deleted successfully!"})
-        }catch(err: any){
-            res.status(400).json({error: err.message})
-        }
-    },
     login: async (req: Request, res: Response)=>{
         try {
             const {email, password} = req.body;
@@ -62,6 +17,7 @@ const DonorController = {
             if(!(await bcrypt.compare(password, donor.password))){
                 return res.status(400).json({error: "Incorrect Password!"});
             }
+             
             const accessToken = generateToken({id: donor._id, fullname: donor.fullname, isAdmin: donor.isAdmin, isHidden: donor.isHidden, expirationTime: `${process.env.ACCESS_TOKEN_EXPIRATION_TIME}`})
             const refreshToken = generateToken({id: donor._id, fullname: donor.fullname, isAdmin: donor.isAdmin, isHidden: donor.isHidden, expirationTime: `${process.env.REFRESH_TOKEN_EXPIRATION_TIME}`})
             res.json({donor, accessToken, refreshToken});

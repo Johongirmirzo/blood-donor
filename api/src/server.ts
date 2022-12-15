@@ -5,7 +5,6 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser"
 import path from "path";
 import helmet from "helmet";
-import cors from "cors";
 import setAllowedOrigins from "./utils/setAllowedOrigins"
 import connectDB from "./config/connectDB";
 import {
