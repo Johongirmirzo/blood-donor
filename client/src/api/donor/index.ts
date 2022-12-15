@@ -8,8 +8,8 @@ const login = async (loginData: IDonorLogin) => {
 const register = async (registerData: IDonorRegisterData) => {
     return await API.post(ENDPOINTS.REGISTER, registerData);
 }
-const logout = async (donorId: string) => {
-    return await API.delete(`${ENDPOINTS.LOGOUT}/${donorId}`);
+const logout = async () => {
+    return await API.delete(ENDPOINTS.LOGOUT);
 }
 const getAllDonors = async ()=>{
     return await API.get(ENDPOINTS.GET_ALL_DONORS)

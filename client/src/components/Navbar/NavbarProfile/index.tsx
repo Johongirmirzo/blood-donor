@@ -52,7 +52,7 @@ const NavbarProfile = ({ toggleMenu }: NavbarProfileProps) => {
   const handleLogoutClick = () => {
     (async () => {
       try {
-        await logout(donorId);
+        await logout();
         dispatch(logoutUser({}));
         if (toggleMenu) {
           toggleMenu();
