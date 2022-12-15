@@ -161,6 +161,7 @@ const App = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       <GlobalStyle />
       <ErrorBoundary>
         <Suspense fallback={<Loader />}>

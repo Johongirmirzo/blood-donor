@@ -1,4 +1,3 @@
-// const BASE_URL = 'https://blood-donor-production.up.railway.app/api'
 const BASE_URL = 'https://blood-donor.onrender.com/api'
 
 const ENDPOINTS = {
