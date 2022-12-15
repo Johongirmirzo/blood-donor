@@ -1,7 +1,7 @@
 # blood-donor
 
-[Admin Live](https://blood-donor-admin.netlify.app)
-[Client Live](https://blood-donorr.netlify.app/)
+- [Admin Live](https://blood-donor-admin.netlify.app)
+- [Client Live](https://blood-donorr.netlify.app/)
 
 ## Steps to run the app
 
