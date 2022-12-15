@@ -19,7 +19,7 @@ const ChangeProfile = () => {
       navigate("/login");
     }
   }, [authDonor]);
-
+  console.log();
   return (
     <>
       <HeroSection
