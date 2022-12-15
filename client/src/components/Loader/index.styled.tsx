@@ -11,6 +11,5 @@ const LoaderBox = styled.div`
   color: #333;
   font-size: 30px;
 `;
-const LoaderTitle = styled.h1``;
 
-export { LoaderBox, LoaderTitle };
+export { LoaderBox };

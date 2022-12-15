@@ -1,10 +1,11 @@
 import React from "react";
-import { LoaderBox, LoaderTitle } from "./index.styled";
+import { GridLoader } from "react-spinners";
+import { LoaderBox } from "./index.styled";
 
 const Loader = () => {
   return (
     <LoaderBox>
-      <LoaderTitle>Loading...</LoaderTitle>
+      <GridLoader color="#ef3d32" />
     </LoaderBox>
   );
 };
