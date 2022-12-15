@@ -39,6 +39,9 @@ const LoginForm = () => {
       if (err.response.data) {
         setError([err.response.data.error]);
       }
+      if (err.response?.data?.length) {
+        setError([err.response?.data]);
+      }
       setIsLoading(false);
       console.error(err);
     }
