@@ -34,6 +34,10 @@ const LoginFormBox = styled.section`
 const LoginTextBox = styled.div`
   margin-bottom: 30px;
   text-align: center;
+  & p {
+    color: #999;
+    margin-top: 10px;
+  }
 `;
 const LoginTitle = styled.h1`
   color: #eaeaea;

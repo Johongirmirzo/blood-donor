@@ -104,6 +104,7 @@ const Login = () => {
           ))}
         <LoginTextBox>
           <LoginTitle>Admin Login</LoginTitle>
+          <p>In demo mode, CMS is disabled</p>
         </LoginTextBox>
         <Formik
           initialValues={{

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../redux/store";
 import SidebarLogo from "./SidebarLogo";
 import SidebarRow from "./SidebarRow";
 import SidebarHamburger from "./SidebarHamburger";
@@ -14,6 +16,7 @@ import sidebarRowsData from "./sidebarRowsData";
 
 const Sidebar = () => {
   const isMobile = useMobile();
+  const adminEmail = useSelector((state: RootState) => state.admin.email);
   const [isSidebarToggled, setIsSidebarToggled] = useState(false);
   const [activePageId, setActivePageId] = useState(0);
 
@@ -27,7 +30,14 @@ const Sidebar = () => {
   const toggleSidebar = () => setIsSidebarToggled(!isSidebarToggled);
   const getActivePageId = (pageId: number) => setActivePageId(pageId);
 
-  console.log(isMobile);
+  const hidePagesOnAdminMode = () => {
+    return sidebarRowsData.filter((row) =>
+      row.rowName.includes("Page") && adminEmail === "admin.demo@gmail.com"
+        ? false
+        : true
+    );
+  };
+
   return (
     <SidebarAside isMobile={isMobile} isSidebarToggled={isSidebarToggled}>
       {isSidebarToggled && <SidebarOverlay />}
@@ -44,7 +54,7 @@ const Sidebar = () => {
       <SidebarNav>
         <SidebarNavList>
           {isMobile
-            ? sidebarRowsData.map((sidebarRow) => (
+            ? hidePagesOnAdminMode().map((sidebarRow) => (
                 <SidebarRow
                   key={sidebarRow.id}
                   sidebarRow={sidebarRow}
@@ -54,7 +64,7 @@ const Sidebar = () => {
                   isMobile={isMobile}
                 />
               ))
-            : sidebarRowsData.map((sidebarRow) => (
+            : hidePagesOnAdminMode().map((sidebarRow) => (
                 <SidebarRow
                   key={sidebarRow.id}
                   sidebarRow={sidebarRow}
