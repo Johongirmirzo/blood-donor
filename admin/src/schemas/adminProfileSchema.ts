@@ -17,9 +17,6 @@ const adminProfileSchema =  object({
         required("Email can't be empty!").
         min(5, "Minimum allowed email character length is 5").
         max(100, "Maximum allowed email character length is 100"),
-    bloodGroup: 
-        string().
-        required("Blood group can't be empty!"),
     age:
         number().
         required("Age can't be empty!").
@@ -29,11 +26,13 @@ const adminProfileSchema =  object({
         string().
         required("Gender can't be empty!").
         matches(/male|female/i, "Please choose either male or female"),
+    bloodGroup:
+        string(),
     city: 
         string().
         required("City can't be empty!").
         min(2, "Minimum allowed city length is 2").
-        max(150, "Maximum allowed city length is 150"),  
+        max(150, "Maximum allowed city length is 150")
 });
 
 export default adminProfileSchema;

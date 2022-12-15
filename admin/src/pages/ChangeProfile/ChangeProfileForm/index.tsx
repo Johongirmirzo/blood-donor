@@ -29,7 +29,13 @@ const ChangeProfileForm = () => {
   const [isUpdateSuccessfull, setIsUpdateSuccessfull] = useState(false);
   const [error, setError] = useState<string[]>([]);
 
+  const isDemoMode = (email: string) => email === "admin.demo@gmail.com";
+
   const handleUpdateAdminProfileSubmit = async (profileData: IProfileData) => {
+    if (isDemoMode(email))
+      return setError([
+        "Sorry but you can't change profile data in demo mode!",
+      ]);
     try {
       setIsLoading(true);
       const adminProfileResponse = await changeProfile(profileData, adminId);
@@ -53,12 +59,11 @@ const ChangeProfileForm = () => {
     }
   };
 
-  const isDemoMode = (email: string) => email === "admin.demo@gmail.com";
-
   const closeAlertMessage = (index: number) => {
     setError(error.filter((err, i) => i !== index));
   };
 
+  console.log({ adminId, fullname, phoneNumber, email, age, gender, city });
   return (
     <>
       {error &&
@@ -80,6 +85,7 @@ const ChangeProfileForm = () => {
           city,
         }}
         onSubmit={(profileData) => {
+          console.log(profileData);
           handleUpdateAdminProfileSubmit(profileData);
         }}
         validationSchema={adminProfileSchema}
@@ -132,9 +138,9 @@ const ChangeProfileForm = () => {
             <FormControl>
               <FormLabel htmlFor="age">Age</FormLabel>
               <FormInput
-                type="age"
+                type="number"
                 id="age"
-                placeholder="Enter Phone Number"
+                placeholder="Enter Age"
                 name="age"
                 onChange={handleChange}
                 value={values.age}
@@ -146,9 +152,9 @@ const ChangeProfileForm = () => {
             <FormControl>
               <FormLabel htmlFor="city">City</FormLabel>
               <FormInput
-                type="city"
+                type="text"
                 id="city"
-                placeholder="Enter Phone Number"
+                placeholder="Enter City"
                 name="city"
                 onChange={handleChange}
                 value={values.city}
@@ -167,6 +173,9 @@ const ChangeProfileForm = () => {
                     name="gender"
                     value="MALE"
                     onChange={handleChange}
+                    checked={
+                      values.gender.toLowerCase() === "male" ? true : false
+                    }
                   />{" "}
                   Male
                 </ChangeProfileLabel>
@@ -177,6 +186,9 @@ const ChangeProfileForm = () => {
                     name="gender"
                     value="FEMALE"
                     onChange={handleChange}
+                    checked={
+                      values.gender.toLowerCase() === "female" ? true : false
+                    }
                   />{" "}
                   Female
                 </ChangeProfileLabel>
