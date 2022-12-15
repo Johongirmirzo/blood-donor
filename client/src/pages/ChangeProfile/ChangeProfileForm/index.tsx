@@ -149,7 +149,7 @@ const ChangeProfileForm = () => {
             <FormControl>
               <FormLabel htmlFor="age">Age</FormLabel>
               <FormInput
-                type="age"
+                type="number"
                 id="age"
                 placeholder="Enter Phone Number"
                 name="age"
